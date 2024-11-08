@@ -1,56 +1,63 @@
-# Rust-Svelte-Gix
+# Rust WASM + Svelte Integration Project
 
-Rust-Svelte-Gix is a simple Dapp built using Rust for the backend and Svelte for the frontend.
+A full-stack application demonstrating Rust-generated WebAssembly (WASM) integration with a Svelte frontend. The project includes a simple calculator function implemented in Rust and exposed through WASM bindings.
 
-## Requirements
+## 🚀 Features
 
-Make sure you have the following installed:
+- Rust backend compiled to WebAssembly
+- Svelte frontend with TypeScript support
+- Simple addition calculator demo
+- IC (Internet Computer) integration capabilities
+- Anonymous identity handling
+- Component testing setup
 
-- **DFINITY Canister SDK (`dfx`)**: Ensure you have the latest version installed. see guide in [Motoko-Book](https://motoko-book.dev/project-deployment/installing-sdk.html).
-- **Node.js**: Version 18 or above. Download from the [Node.js website](https://nodejs.org/).
+## 🛠️ Technology Stack
 
-## Installation
+- **Backend:**
+  - Rust
+  - wasm-bindgen
+  - Cargo
+- **Frontend:**
+  - Svelte
+  - TypeScript
+  - @dfinity/agent
+  - @dfinity/gix-components
 
-### Steps to Deploy Locally
+## 📦 Project Structure
 
-1. **Start the DFX network:**
+├── backend/         # Rust backend code
+
+├── proxy/           # Rust WASM module
+
+├── frontend/        # Svelte frontend application
+
+└── declarations/    # Generated declarations and bindings
+
+
+## 🔧 Setup & Installation
+
+1. **Prerequisites:**
    ```bash
-   dfx start
+   # Install Rust
+   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+   
+   # Install wasm-pack
+   cargo install wasm-pack
+   
+   # Install Node.js dependencies
+   npm install
    ```
-2. **Deploy the project locally:**
+2. **Build and Deploy:**
    ```bash
+   # Start dfx
+   dfx start --clean --background
+
+   # Generate WASM bindings
+   ./scripts/bindings.sh
+
+   # Deploy local environment
    ./scripts/deploy-local.sh
+
+   # Start frontend development server
+   npm run dev
    ```
-
-### Steps to Run Unit Tests
-
-Run the following command to execute unit tests:
-
-```bash
-npm run test
-```
-
-## Development
-
-### How to Start Development
-
-To start the development server, run:
-
-```bash
-npm run dev
-```
-
-## Deployment
-
-### Build and Deploy from Scratch
-
-1. **Deploy the project:**
-   ```bash
-   dfx deploy
-   ```
-
-2. **Build the project:**
-   ```bash
-   dfx build
-   ```
-
