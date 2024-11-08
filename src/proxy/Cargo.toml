@@ -1,0 +1,17 @@
+[package]
+name = "proxy"
+version = "0.1.0"
+edition.workspace = true
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[features]
+default = []
+enable-wasm-bindgen = ["wasm-bindgen"]
+
+[dependencies]
+candid.workspace = true
+serde.workspace = true
+sha2.workspace = true
+wasm-bindgen = { workspace = true, optional = true }
